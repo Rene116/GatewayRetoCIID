@@ -6,7 +6,7 @@ const app = express();
 // Crea una tecnología emergente
 app.post("/api/technologies/create", async (req, res) => {
     try {
-        const createTechnology = await fetch('http://localhost:3001/api/technologies/create', {
+        const createTechnology = await fetch('https://technologies-xnad.onrender.com/api/technologies/create', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json',
@@ -24,7 +24,7 @@ app.post("/api/technologies/create", async (req, res) => {
 app.get("/api/technologies/read", async (req, res) => {
   try {
     // Construir la URL del microservicio con los query parameters
-    const url = new URL("http://localhost:3001/api/technologies/read");
+    const url = new URL("https://technologies-xnad.onrender.com/api/technologies/read");
     Object.keys(req.query).forEach((key) =>
       url.searchParams.append(key, req.query[key])
     );
@@ -46,7 +46,7 @@ app.put("/api/technologies/update/:id", async (req, res) => {
   const id =req.params.id;
   try {
     const updateTechnology = await fetch (
-      `http://localhost:3001/api/technologies/update/${id}`,
+      `https://technologies-xnad.onrender.com/api/technologies/update/${id}`,
     {
       method: 'PUT',
       headers: {
@@ -67,7 +67,7 @@ app.delete("/api/technologies/delete/:id", async (req, res) => {
   const id = req.params.id;
   try { 
     const deleteTechnology = await fetch (
-        `http://localhost:3001/api/technologies/delete/${id}`,
+        `https://technologies-xnad.onrender.com/api/technologies/delete/${id}`,
         {
             method: 'DELETE',
         }
